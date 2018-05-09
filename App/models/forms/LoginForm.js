@@ -72,6 +72,8 @@ class LoginForm extends Component {
     .then(function (response) { // ON SUCCESS TOKEN VALIDATION
       // Token is valided then user is connected => set user datas in reduxState
       self.props.authSuccess(response, accessToken)
+      // Go to the App router (logged users)
+      self.props.navigation.navigate('App');
     })
     .catch(function (error) {
       // if an error occurs during validation
