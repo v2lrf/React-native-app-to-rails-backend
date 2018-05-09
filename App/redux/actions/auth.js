@@ -1,4 +1,4 @@
-import { ON_SUCCESS_LOGIN } from "./types";
+import { ON_SUCCESS_LOGIN, SET_BY_STORAGE } from "./types";
 
 function authSuccess(success_datas, accessToken) {
 	return {
@@ -6,5 +6,12 @@ function authSuccess(success_datas, accessToken) {
 	  payload: {success_datas: success_datas, accessToken: accessToken, status: 200},
 	}
 }
-export { authSuccess }
+
+function setUserByStorage(lastState) {
+	return {
+	  type: SET_BY_STORAGE,
+	  payload: {lastState},
+	}
+}
+export { authSuccess, setUserByStorage }
 

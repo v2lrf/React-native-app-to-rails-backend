@@ -1,4 +1,4 @@
-import { ON_SUCCESS_LOGIN } from '../actions/types';
+import { ON_SUCCESS_LOGIN, SET_BY_STORAGE } from '../actions/types';
 
 const INITIAL_STATE = {
   connected: false,
@@ -20,6 +20,8 @@ const Auth = (state = INITIAL_STATE, action) => {
         }),
         user: action.payload.success_datas.data.data,
         });
+    case SET_BY_STORAGE:
+  return action.payload.lastState
 		default:
       return state;
   }

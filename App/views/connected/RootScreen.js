@@ -49,7 +49,6 @@ class RootScreen extends React.Component {
 const mapStateToProps = (state) => ({
 	reduxState:state
 });
-// Remplacer le rootScreen par le composent react
 export default connect(mapStateToProps, {
 	Auth,
 })(RootScreen);

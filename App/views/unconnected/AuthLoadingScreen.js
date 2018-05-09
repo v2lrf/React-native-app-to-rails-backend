@@ -6,8 +6,11 @@ import {
   StyleSheet,
   View,
 } from 'react-native';
+import { connect } from 'react-redux';
+import Auth from '../../redux/reducers/auth';
+import { setUserByStorage } from '../../redux/actions/auth'
 
-export default class AuthLoadingScreen extends React.Component {
+class AuthLoadingScreen extends React.Component {
   constructor(props) {
     super(props);
     this._bootstrapAsync();
@@ -15,10 +18,13 @@ export default class AuthLoadingScreen extends React.Component {
 
   // Fetch the token from storage then navigate to our appropriate place
   _bootstrapAsync = async () => {
-    const userToken = await AsyncStorage.getItem('myCustomStorageKey');
-    // This will switch to the App screen or Auth screen and this loading
-    // screen will be unmounted and thrown away.
-    if(userToken) {
+    const lastUserState = await AsyncStorage.getItem('myCustomStorageKey');
+    
+    // If data exists in the local storage then let us reuse them to connect the user
+    if(lastUserState) {
+      var lastUserStateObj = JSON.parse(lastUserState);
+      // Set local storage values in redux
+      this.props.setUserByStorage(lastUserStateObj)
       this.props.navigation.navigate('App');
     }
     else {
@@ -45,3 +51,11 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
+
+const mapStateToProps = (state) => ({
+	reduxState:state
+});
+export default connect(mapStateToProps, {
+  Auth,
+  setUserByStorage,
+})(AuthLoadingScreen);
