@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { View, Text, Button } from 'native-base';
 import GenerateForm from 'react-native-form-builder';
- 
+
 const styles = {
   wrapper: {
     flex: 1,
