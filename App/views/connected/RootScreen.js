@@ -1,9 +1,13 @@
 import React from 'react';
 import { Text, View } from 'react-native';
+import { connect } from 'react-redux';
+import Auth from '../../redux/reducers/auth';
 
-export default class RootScreen extends React.Component {
+
+class RootScreen extends React.Component {
   constructor(props) {
     super(props);
+    console.log("ENTER IN RootScreen.js constructor", this.props)
   }
   // Default title
   static navigationOptions = {
@@ -20,3 +24,11 @@ export default class RootScreen extends React.Component {
     );
   }
 }
+
+const mapStateToProps = (state) => ({
+	reduxState:state
+});
+// Remplacer le rootScreen par le composent react
+export default connect(mapStateToProps, {
+	Auth,
+})(RootScreen);
