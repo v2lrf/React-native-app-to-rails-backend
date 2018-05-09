@@ -8,7 +8,6 @@ import { authSuccess } from '../../redux/actions/auth'
 import Auth from '../../redux/reducers/auth';
 import { Url } from '../../../config/api/credentials';
 
-
 const styles = {
   wrapper: {
     flex: 1,
@@ -36,6 +35,7 @@ const fields = [
     label: 'Password',
   },
 ];
+
 class LoginForm extends Component {
   login() {
     const formValues = this.formGenerator.getValues();
@@ -80,7 +80,6 @@ class LoginForm extends Component {
       console.log("ERROR DURING TOKEN VALIDATION", error);
     });
   }
-
 
   render() {
     return (

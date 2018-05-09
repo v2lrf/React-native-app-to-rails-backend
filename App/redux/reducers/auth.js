@@ -5,7 +5,6 @@ const INITIAL_STATE = {
   token: {},
   user: {}
 };
-
 const Auth = (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case ON_SUCCESS_LOGIN:
