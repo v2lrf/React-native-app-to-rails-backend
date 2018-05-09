@@ -1,4 +1,4 @@
-import { ON_SUCCESS_LOGIN, SET_BY_STORAGE } from "./types";
+import { ON_SUCCESS_LOGIN, SET_BY_STORAGE, UPDATE_ACCESS_TOKEN } from "./types";
 
 function authSuccess(success_datas, accessToken) {
 	return {
@@ -13,5 +13,11 @@ function setUserByStorage(lastState) {
 	  payload: {lastState},
 	}
 }
-export { authSuccess, setUserByStorage }
+function updateAccessToken(new_token) {
+	return {
+	  type: UPDATE_ACCESS_TOKEN,
+	  payload: {new_token},
+	}
+}
+export { authSuccess, setUserByStorage, updateAccessToken }
 

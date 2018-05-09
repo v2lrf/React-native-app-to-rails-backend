@@ -1,4 +1,4 @@
-import { ON_SUCCESS_LOGIN, SET_BY_STORAGE } from '../actions/types';
+import { ON_SUCCESS_LOGIN, SET_BY_STORAGE, UPDATE_ACCESS_TOKEN } from '../actions/types';
 
 const INITIAL_STATE = {
   connected: false,
@@ -13,14 +13,24 @@ const Auth = (state = INITIAL_STATE, action) => {
       return Object.assign({}, state, {
         connected: true,
         token: Object.assign({}, state.token, {
-          access_token: accessToken,
+          "access-token": accessToken,
           client: action.payload.success_datas.headers.client,
           uid: action.payload.success_datas.headers.uid,
         }),
         user: action.payload.success_datas.data.data,
         });
+
+    case UPDATE_ACCESS_TOKEN:
+    console.log("dshgqdsqfqfdqf", action)
+      return Object.assign({}, state, {
+        token: Object.assign({}, state.token, {
+          "access-token": action.payload.new_token,
+          }),
+        });
+
     case SET_BY_STORAGE:
-  return action.payload.lastState
+      return action.payload.lastState
+
 		default:
       return state;
   }
