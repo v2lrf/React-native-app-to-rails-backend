@@ -2,6 +2,10 @@ import React, { Component } from 'react';
 import { View, Text, Button } from 'native-base';
 import GenerateForm from 'react-native-form-builder';
 
+import { connect } from 'react-redux';
+import { authSuccess } from '../../redux/actions/auth'
+import Auth from '../../redux/reducers/auth';
+
 const styles = {
   wrapper: {
     flex: 1,
@@ -29,10 +33,13 @@ const fields = [
     label: 'Password',
   },
 ];
-export default class LoginForm extends Component {
+class LoginForm extends Component {
   login() {
     const formValues = this.formGenerator.getValues();
     console.log('FORM VALUES', formValues);
+    console.log('THIS PROPS', this.props);
+    this.props.authSuccess({testObject: "value"})
+
   }
   render() {
     return (
@@ -54,3 +61,12 @@ export default class LoginForm extends Component {
     );
   }
 }
+
+const mapStateToProps = (state) => ({
+	reduxState:state
+});
+// Export the react component included in redux connect
+export default connect(mapStateToProps, {
+	Auth,
+  authSuccess,
+})(LoginForm);
