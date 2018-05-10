@@ -1,4 +1,5 @@
 import { ON_SUCCESS_LOGIN, SET_BY_STORAGE, UPDATE_ACCESS_TOKEN } from '../actions/types';
+import { REHYDRATE } from 'redux-persist/constants'
 
 const INITIAL_STATE = {
   connected: false,
@@ -27,6 +28,10 @@ const Auth = (state = INITIAL_STATE, action) => {
           "access-token": action.payload.new_token,
           }),
         });
+
+    case REHYDRATE:
+        console.log("ENTER IN REHYDRATE CASE", Date.now())
+      return {...state, ...action.payload.Auth, rehydrated: true}
 
     case SET_BY_STORAGE:
       return action.payload.lastState

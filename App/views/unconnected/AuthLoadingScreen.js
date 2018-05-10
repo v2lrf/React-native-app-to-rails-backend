@@ -13,18 +13,17 @@ import { setUserByStorage } from '../../redux/actions/auth'
 class AuthLoadingScreen extends React.Component {
   constructor(props) {
     super(props);
-    this._bootstrapAsync();
+    console.log("ENTER IN AUTH LOADING", Date.now())
+    console.log("ENTER IN AUTH LOADING", this.props)
+    if( this.props.reduxState.Auth.connected || this.props.reduxState.Auth.rehydrated) {
+      this.checkIfConnected();
+    }
   }
 
   // Fetch the token from storage then navigate to our appropriate place
-  _bootstrapAsync = async () => {
-    const lastUserState = await AsyncStorage.getItem('myCustomStorageKey');
-    
+  checkIfConnected = () => {    
     // If data exists in the local storage then let us reuse them to connect the user
-    if(lastUserState) {
-      var lastUserStateObj = JSON.parse(lastUserState);
-      // Set local storage values in redux
-      this.props.setUserByStorage(lastUserStateObj)
+    if(true) {
       this.props.navigation.navigate('App');
     }
     else {
