@@ -12,7 +12,6 @@ import { updateAccessToken } from '../../redux/actions/auth';
 class AppointmentsIndexScreen extends React.Component {
   constructor(props) {
     super(props);
-    console.log("START LUNCHES", this.props)
     this.fetchAppointments = this.fetchAppointments.bind(this);
     this.state = {
       appointments: [],
@@ -25,13 +24,11 @@ class AppointmentsIndexScreen extends React.Component {
   };
 
   fetchAppointments() {
-    console.log("START FEAT APPOINTMENTS", this.props)
     var self = this;
     var accessToken = this.props.reduxState.Auth.token
     // Get user profile
     Axios.get(Url.appointments, {headers: Object.assign(Url.headers, accessToken)})
     .then(function (response) {
-      console.log("FETCH APOINTMENTS OK", response);
       if(response.headers["access-token"] != "") {
         self.props.updateAccessToken(response.headers["access-token"])
       }
@@ -40,7 +37,7 @@ class AppointmentsIndexScreen extends React.Component {
       })
     })
     .catch(function (error) {
-      console.log(error);
+      console.log("ERROR DURING fecthAppointments", error);
     });
   }
 

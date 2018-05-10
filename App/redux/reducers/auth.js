@@ -22,7 +22,6 @@ const Auth = (state = INITIAL_STATE, action) => {
         });
 
     case UPDATE_ACCESS_TOKEN:
-    console.log("dshgqdsqfqfdqf", action)
       return Object.assign({}, state, {
         token: Object.assign({}, state.token, {
           "access-token": action.payload.new_token,
@@ -30,7 +29,6 @@ const Auth = (state = INITIAL_STATE, action) => {
         });
 
     case REHYDRATE:
-        console.log("ENTER IN REHYDRATE CASE", Date.now())
       return {...state, ...action.payload.Auth, rehydrated: true}
 
     case SET_BY_STORAGE:

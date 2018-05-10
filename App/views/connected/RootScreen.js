@@ -1,7 +1,7 @@
 import React from 'react';
 import { Text, View, Button } from 'native-base';
 import { connect } from 'react-redux';
-import { AppRegistry, AsyncStorage } from 'react-native';
+import { AsyncStorage } from 'react-native';
 
 import Auth from '../../redux/reducers/auth';
 
@@ -14,15 +14,6 @@ class RootScreen extends React.Component {
   static navigationOptions = {
     title: "RootScreen"
   };
-
-  componentWillMount = () => {
-    var saveState = this.props.reduxState.Auth
-    this.setTokenStorage('myCustomStorageKey', saveState);
-  }
-
-  async setTokenStorage(key, userDatas) {
-    await AsyncStorage.setItem(key, JSON.stringify(userDatas));
-  }
 
   async destroySession() {
     await AsyncStorage.clear();

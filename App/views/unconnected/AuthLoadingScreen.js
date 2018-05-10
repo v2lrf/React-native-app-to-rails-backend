@@ -1,31 +1,23 @@
 import React from 'react';
-import {
-  ActivityIndicator,
-  AsyncStorage,
-  StatusBar,
-  StyleSheet,
-  View,
-} from 'react-native';
+import { ActivityIndicator, StatusBar, StyleSheet, View } from 'react-native';
 import { connect } from 'react-redux';
 import Auth from '../../redux/reducers/auth';
-import { setUserByStorage } from '../../redux/actions/auth'
 
 class AuthLoadingScreen extends React.Component {
   constructor(props) {
     super(props);
-    console.log("ENTER IN AUTH LOADING", Date.now())
-    console.log("ENTER IN AUTH LOADING", this.props)
+    // Enter in this case if the user just logged in or if there was data stored in reduxPersist
     if( this.props.reduxState.Auth.connected || this.props.reduxState.Auth.rehydrated) {
       this.checkIfConnected();
     }
   }
 
-  // Fetch the token from storage then navigate to our appropriate place
-  checkIfConnected = () => {    
-    // If data exists in the local storage then let us reuse them to connect the user
-    if(true) {
+  checkIfConnected = () => {
+    // In this case user just logged or user have session in local storage    
+    if(this.props.reduxState.Auth.connected) {
       this.props.navigation.navigate('App');
     }
+    // In this case user have session but it had been destroyed when it was last connected
     else {
       this.props.navigation.navigate('Auth');
     }
@@ -56,5 +48,4 @@ const mapStateToProps = (state) => ({
 });
 export default connect(mapStateToProps, {
   Auth,
-  setUserByStorage,
 })(AuthLoadingScreen);
