@@ -9,7 +9,6 @@ import Auth from '../../redux/reducers/auth';
 import { updateAccessToken } from '../../redux/actions/auth';
 import { Url } from '../../../config/api/credentials';
 
-
 const styles = {
   wrapper: {
     flex: 1,
@@ -20,7 +19,6 @@ const styles = {
     paddingTop: 20,
   },
 };
-// These Fields will create a login form with three fields
 const fields = [
   {
     type: 'text',
@@ -64,11 +62,9 @@ class AppointmentNew extends React.Component {
       console.log("CREATE SUCCESS", response)
     })
     .catch(function (error) {
-      // Return error if credentials is invalids
       console.log("ERROR DURING createAppointment", error);
     });
-  } // End of newSessions()
-
+  }
 
   render() {
     const { navigate } = this.props.navigation;

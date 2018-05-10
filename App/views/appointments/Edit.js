@@ -9,7 +9,6 @@ import Auth from '../../redux/reducers/auth';
 import { updateAccessToken } from '../../redux/actions/auth';
 import { Url } from '../../../config/api/credentials';
 
-
 const styles = {
   wrapper: {
     flex: 1,
@@ -20,7 +19,7 @@ const styles = {
     paddingTop: 20,
   },
 };
-// These Fields will create a login form with three fields
+
 const fields = [
   {
     type: 'text',
@@ -54,7 +53,7 @@ class AppointmentEdit extends React.Component {
     const formValues = this.formGenerator.getValues();
     // save this in variable to dont forget
     var self = this;
-    // Post the request
+    // Put the request
     Axios.put(Url.appointments+id, formValues, {headers: Object.assign(Url.headers, accessToken)})
     .then(function (response) { // ON SUCCESS
       if(response.headers["access-token"] != "") {
@@ -65,10 +64,9 @@ class AppointmentEdit extends React.Component {
       console.log("UPDATE SUCCESS", response)
     })
     .catch(function (error) {
-      // Return error if credentials is invalids
       console.log("ERROR DURING updateAppointment", error);
     });
-  } // End of newSessions()
+  }
 
   render() {
     const { navigate } = this.props.navigation;

@@ -27,7 +27,7 @@ const Auth = (state = INITIAL_STATE, action) => {
           "access-token": action.payload.new_token,
           }),
         });
-
+    // When open app set the last state
     case REHYDRATE:
       return {...state, ...action.payload.Auth, rehydrated: true}
 

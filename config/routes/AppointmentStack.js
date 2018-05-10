@@ -5,7 +5,6 @@ import AppointmentShow from '../../App/views/appointments/Show';
 import AppointmentNew from '../../App/views/appointments/New';
 import AppointmentEdit from '../../App/views/appointments/Edit';
 
-
 // Router
 export const AppointmentStack = createStackNavigator(
   {

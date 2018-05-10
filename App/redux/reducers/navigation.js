@@ -1,5 +1,6 @@
 import { AppStack } from '../../../config/routes/AppStack';
 
+// we get the props of navigation and store them in redux to centralize everything
 const initialState = AppStack.router.getStateForAction(
   AppStack.router.getActionForPathAndParams("Home")
 );

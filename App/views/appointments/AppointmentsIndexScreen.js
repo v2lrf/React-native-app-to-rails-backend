@@ -9,15 +9,9 @@ import { Url } from '../../../config/api/credentials';
 import { updateAccessToken } from '../../redux/actions/auth';
 import AppointmentCard from '../../components/appointments/Card';
 
-
-
 class AppointmentsIndexScreen extends React.Component {
   constructor(props) {
     super(props);
-    this.editAppointment = this.editAppointment.bind(this);
-    this.fetchAppointments = this.fetchAppointments.bind(this);
-    this.deleteAppointment = this.deleteAppointment.bind(this);
-    this.seeAppointmentDetail = this.seeAppointmentDetail.bind(this);
     this.state = {
       appointments: [],
     }

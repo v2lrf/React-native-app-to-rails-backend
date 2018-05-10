@@ -6,8 +6,7 @@ import { persistStore, autoRehydrate } from 'redux-persist';
 
 import reducers from './reducers';
 
-
-
+// Create store with middleware
 const store = createStore(
   reducers,
   undefined,
@@ -17,6 +16,7 @@ const store = createStore(
   autoRehydrate()
 );
 
+// Combine store and AsyncStorage
 persistStore(store, { storage: AsyncStorage });
 
 export default store;

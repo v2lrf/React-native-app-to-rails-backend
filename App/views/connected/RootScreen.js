@@ -6,10 +6,6 @@ import { AsyncStorage } from 'react-native';
 import Auth from '../../redux/reducers/auth';
 
 class RootScreen extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-  // Default title
   static navigationOptions = {
     title: "RootScreen"
   };

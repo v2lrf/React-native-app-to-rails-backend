@@ -2,11 +2,6 @@ import React from 'react';
 import { Card, CardTitle, CardContent, CardAction, CardButton, CardImage } from 'react-native-cards';
 
 export default class AppointmentShow extends React.Component { 
-  constructor(props){
-    super(props)
-    console.log("SHOW", this.props)
-  }
-
   render() {
     var { appointment } = this.props.navigation.state.params
     const { navigate } = this.props.navigation;
