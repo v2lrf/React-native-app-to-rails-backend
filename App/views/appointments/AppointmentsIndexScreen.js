@@ -29,6 +29,10 @@ class AppointmentsIndexScreen extends React.Component {
   componentWillMount = () => {
     this.fetchAppointments();
   }
+
+  refreshComponent(newAppointment) {
+    this.fetchAppointments();
+  }
   
 
   fetchAppointments() {
@@ -74,7 +78,7 @@ class AppointmentsIndexScreen extends React.Component {
     if(appointments) {
       return (
         <ScrollView>
-          <Button block onPress={() => {this.props.navigation.navigate("New")} }>
+          <Button block onPress={() => {this.props.navigation.navigate("New", { refreshComponent: () => this.refreshComponent() })} }>
             <Text>New Appointment</Text>
           </Button>
           {appointments.map((appointment) => {

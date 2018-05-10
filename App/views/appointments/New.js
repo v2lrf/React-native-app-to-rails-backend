@@ -59,7 +59,7 @@ class AppointmentNew extends React.Component {
       if(response.headers["access-token"] != "") {
         self.props.updateAccessToken(response.headers["access-token"])
       }
-      alert("Appointment has been created !")
+      self.props.navigation.state.params.refreshComponent()
       self.props.navigation.navigate("Index");
       console.log("CREATE SUCCESS", response)
     })
