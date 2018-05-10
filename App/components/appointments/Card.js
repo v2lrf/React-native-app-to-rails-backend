@@ -1,7 +1,5 @@
 import React from 'react';
 import { Card, CardTitle, CardContent, CardAction, CardButton, CardImage } from 'react-native-cards';
-import AppointmentShow from './Show';
-
 
 export default class AppointmentCard extends React.Component { 
   render() {

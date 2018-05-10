@@ -1,5 +1,6 @@
 import React from 'react';
-import { StyleSheet, Text, View, Button, ScrollView } from 'react-native';
+import { StyleSheet, ScrollView } from 'react-native';
+import { View, Text, Button } from 'native-base';
 import { connect } from 'react-redux';
 import Axios from 'axios';
 
@@ -73,6 +74,9 @@ class AppointmentsIndexScreen extends React.Component {
     if(appointments) {
       return (
         <ScrollView>
+          <Button block onPress={() => {this.props.navigation.navigate("New")} }>
+            <Text>New Appointment</Text>
+          </Button>
           {appointments.map((appointment) => {
             return <AppointmentCard 
                       key={appointment.id} 
