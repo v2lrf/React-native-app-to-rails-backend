@@ -30,7 +30,7 @@ export default class AppointmentShow extends React.Component {
             color="#FEB557"
           />
           <CardButton
-            onPress={() => {navigate("Appointments")}}
+            onPress={() => {navigate("Index")}}
             title="Return"
             color="#FEB557"
           />
