@@ -8,6 +8,7 @@ import Auth from '../../redux/reducers/auth';
 import { Url } from '../../../config/api/credentials';
 import { updateAccessToken } from '../../redux/actions/auth';
 import AppointmentCard from '../../components/appointments/Card';
+import navigation from '../../redux/reducers/navigation';
 
 
 
@@ -53,7 +54,7 @@ class AppointmentsIndexScreen extends React.Component {
             justifyContent: 'space-between'
         }}>
           {appointments.map((appointment) => {
-            return <AppointmentCard key={appointment.id} appointment={appointment}/>
+            return <AppointmentCard key={appointment.id} appointment={appointment} navigation={this.props.navigation}/>
           })}
         </ScrollView>
       )

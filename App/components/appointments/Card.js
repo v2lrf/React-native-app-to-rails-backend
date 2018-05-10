@@ -1,10 +1,19 @@
 import React from 'react';
 import { Card, CardTitle, CardContent, CardAction, CardButton, CardImage } from 'react-native-cards';
+import AppointmentShow from './Show';
+import navigation from '../../redux/reducers/navigation';
 
 export default class AppointmentCard extends React.Component { 
   constructor(props){
     super(props)
+    console.log(this.props)
+    this.seeAppointmentDetail = this.seeAppointmentDetail.bind(this);
   } 
+
+  seeAppointmentDetail(appointment) {
+    this.props.navigation.navigate("Appointment", {appointment})
+  }
+
   render() {
     return (
       <Card>
@@ -16,7 +25,7 @@ export default class AppointmentCard extends React.Component {
           separator={true} 
           inColumn={false}>
           <CardButton
-            onPress={() => {}}
+            onPress={ () => {this.seeAppointmentDetail(this.props.appointment)} }
             title="See detail"
             color="#FEB557"
           />
