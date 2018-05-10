@@ -14,6 +14,7 @@ import AppointmentCard from '../../components/appointments/Card';
 class AppointmentsIndexScreen extends React.Component {
   constructor(props) {
     super(props);
+    this.editAppointment = this.editAppointment.bind(this);
     this.fetchAppointments = this.fetchAppointments.bind(this);
     this.deleteAppointment = this.deleteAppointment.bind(this);
     this.seeAppointmentDetail = this.seeAppointmentDetail.bind(this);
@@ -55,6 +56,9 @@ class AppointmentsIndexScreen extends React.Component {
   seeAppointmentDetail(appointment) {
     this.props.navigation.navigate("Show", {appointment})
   }
+  editAppointment(appointment) {
+    this.props.navigation.navigate("Edit", {appointment: appointment, refreshComponent: () => this.refreshComponent()})
+  }
 
   deleteAppointment(appointment) {
     var self = this;
@@ -86,6 +90,7 @@ class AppointmentsIndexScreen extends React.Component {
                       key={appointment.id} 
                       deleteAppointment={ () => { this.deleteAppointment(appointment) } } 
                       seeAppointmentDetail={ () => { this.seeAppointmentDetail(appointment) } }
+                      editAppointment={ () => { this.editAppointment(appointment) } }
                       appointment={appointment} 
                       navigation={this.props.navigation}
                     />

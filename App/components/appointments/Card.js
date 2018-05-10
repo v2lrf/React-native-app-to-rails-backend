@@ -18,7 +18,7 @@ export default class AppointmentCard extends React.Component {
             color="#FEB557"
           />
           <CardButton
-            onPress={() => {}}
+            onPress={this.props.editAppointment}
             title="Edit"
             color="#FEB557"
           />
