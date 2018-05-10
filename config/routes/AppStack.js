@@ -1,7 +1,7 @@
 import { createDrawerNavigator } from 'react-navigation';
 import RootScreen from '../../App/views/connected/RootScreen';
-import AppointmentsIndexScreen from '../../App/views/appointments/AppointmentsIndexScreen';
-import AppointmentShow from '../../App/components/appointments/Show';
+import { AppointmentStack } from './AppointmentStack';
+
 
 
 // Router
@@ -11,10 +11,7 @@ export const AppStack = createDrawerNavigator(
       screen: RootScreen,
     },
     Appointments: {
-      screen: AppointmentsIndexScreen,
-    },
-    Appointment: {
-      screen: AppointmentShow,
+      screen: AppointmentStack,
     },
   },
   // Default route

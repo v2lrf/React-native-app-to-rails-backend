@@ -11,7 +11,7 @@ export default class AppointmentCard extends React.Component {
   } 
 
   seeAppointmentDetail(appointment) {
-    this.props.navigation.navigate("Appointment", {appointment})
+    this.props.navigation.navigate("Show", {appointment})
   }
 
   render() {
