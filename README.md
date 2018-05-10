@@ -1,3 +1,7 @@
+This project was bootstrapped with [Create React Native App](https://github.com/react-community/create-react-native-app).
+
+Below you'll find information about performing common tasks. The most recent version of this guide is available [here](https://github.com/react-community/create-react-native-app/blob/master/react-native-scripts/template/README.md).
+
 # Test the application locally
 First, you have to create the seeds and launch the rails server available [here](https://github.com/Eth3rnit3/Rails_React_Native_Demo)
 
