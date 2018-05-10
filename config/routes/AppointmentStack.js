@@ -1,8 +1,7 @@
 import { createStackNavigator } from 'react-navigation';
+// Vues
 import AppointmentsIndexScreen from '../../App/views/appointments/AppointmentsIndexScreen';
 import AppointmentShow from '../../App/components/appointments/Show';
-// Vues
-
 
 // Router
 export const AppointmentStack = createStackNavigator(
