@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, Button } from 'react-native';
+import { StyleSheet, Text, View, Button, ScrollView } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 import { connect } from 'react-redux';
 import Axios from 'axios';
@@ -7,6 +7,8 @@ import Axios from 'axios';
 import Auth from '../../redux/reducers/auth';
 import { Url } from '../../../config/api/credentials';
 import { updateAccessToken } from '../../redux/actions/auth';
+import AppointmentCard from '../../components/appointments/Card';
+
 
 
 class AppointmentsIndexScreen extends React.Component {
@@ -42,16 +44,19 @@ class AppointmentsIndexScreen extends React.Component {
   }
 
   render() {
-    // Get navigation props to be able to use navigate function
-    const { navigate } = this.props.navigation;
-    if(this.state.appointments) {
-      return this.state.appointments.map((appointment) => {
-        return (
-          // add key here
-          // add on press function and send appointment.id to go on the show page 
-          <View key={appointment.id}><Text style={styles.titleText}>{appointment.title}</Text></View>
-        )
-      })
+    let appointments = this.state.appointments
+    if(appointments) {
+      return (
+        <ScrollView
+          contentContainerStyle={{
+            flex: 1,
+            justifyContent: 'space-between'
+        }}>
+          {appointments.map((appointment) => {
+            return <AppointmentCard key={appointment.id} appointment={appointment}/>
+          })}
+        </ScrollView>
+      )
     }
     return (
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
