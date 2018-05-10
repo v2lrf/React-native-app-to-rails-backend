@@ -8,7 +8,6 @@ import Auth from '../../redux/reducers/auth';
 class RootScreen extends React.Component {
   constructor(props) {
     super(props);
-    console.log("ENTER IN RootScreen.js constructor", this.props)
   }
   // Default title
   static navigationOptions = {
