@@ -7,17 +7,11 @@ function authSuccess(success_datas, accessToken) {
 	}
 }
 
-function setUserByStorage(lastState) {
-	return {
-	  type: SET_BY_STORAGE,
-	  payload: {lastState},
-	}
-}
 function updateAccessToken(new_token) {
 	return {
 	  type: UPDATE_ACCESS_TOKEN,
 	  payload: {new_token},
 	}
 }
-export { authSuccess, setUserByStorage, updateAccessToken }
+export { authSuccess, updateAccessToken }
 
