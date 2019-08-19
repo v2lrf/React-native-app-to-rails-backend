@@ -3,7 +3,7 @@ import {
   SET_BY_STORAGE,
   UPDATE_ACCESS_TOKEN
 } from '../actions/types';
-import { REHYDRATE } from 'redux-persist/lib/constants';
+import { REHYDRATE, PURGE, persistCombineReducers } from 'redux-persist';
 
 const INITIAL_STATE = {
   connected: false,
