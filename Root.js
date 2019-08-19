@@ -10,9 +10,9 @@ export default class Root extends React.Component {
   // formbulder requires some font, there may be forms anywhere in the app so as well place the call here
   async componentWillMount() {
     await Expo.Font.loadAsync({
-      Roboto: require("native-base/Fonts/Roboto.ttf"),
-      Roboto_medium: require("native-base/Fonts/Roboto_medium.ttf"),
-      Ionicons: require("@expo/vector-icons/fonts/Ionicons.ttf"),
+      Roboto: require('native-base/Fonts/Roboto.ttf'),
+      Roboto_medium: require('native-base/Fonts/Roboto_medium.ttf')
+      // Ionicons: require("@expo/vector-icons/fonts/Ionicons.ttf"),
     });
     this.setState({ loading: false });
   }
@@ -32,6 +32,6 @@ export default class Root extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-  },
+    justifyContent: 'center'
+  }
 });
